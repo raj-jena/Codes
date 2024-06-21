@@ -1,0 +1,27 @@
+import java.lang.module.ResolutionException;
+
+public class Main {
+    public  static String reversepreix(String word,char ch)
+    {
+        StringBuilder res=new StringBuilder();
+        for(int i=0;i<word.length();i++)
+        {
+            char currentchar=word.charAt(i);
+            res.insert(0,currentchar);
+            if(currentchar==ch)
+            {
+                res.append(word.substring(i+1,word.length()));
+                return res.toString();
+            }
+        }
+        return word;
+
+    }
+    public static void main(String[] args) {
+        String word="abcdefgh";
+        char ch='b';
+
+        String c=reversepreix("abcdefgh",'b');
+        System.out.println( c);
+    }
+}
