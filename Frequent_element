@@ -1,0 +1,28 @@
+import java.util.HashMap;
+
+public class Main {
+    public static void main(String[] args) {
+        int arr[] = {2, 1, 7, 8, 2, 1, 9, 10, 9, 9, 2, 8, 2};
+        int ans = frequentelement(arr);
+        System.out.println("ans->" + ans);
+
+    }
+
+    public static int frequentelement(int[] arr) {
+        HashMap<Integer, Integer> freqmap = new HashMap<>();
+        int maxfreq = 0;
+        int ans = -1;
+
+        for (int i = 0; i < arr.length; i++) {
+            freqmap.put(arr[i], freqmap.getOrDefault(arr[i], 0) + 1);
+
+            if (freqmap.get(arr[i] )> maxfreq) ;
+            {
+                maxfreq = freqmap.get(arr[i]);
+                ans = arr[i];
+
+            }
+        }
+        return ans;
+    }
+}
