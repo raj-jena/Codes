@@ -1,0 +1,31 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        int arr[]=new int[50];
+        Scanner sc=new Scanner(System.in);
+        System.out.println("No of elements ");
+        int n=sc.nextInt();
+        
+        System.out.println("Enter array element");
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        int c=minimumsubset(arr,n);
+        System.out.println(c);
+    }
+    public static int minimumsubset(int[] arr,int n){
+        HashMap<Integer,Integer>freqmap=new HashMap<>();
+        
+        int maxsubset=0;
+        for(int i=0;i<n;i++)
+        {
+        freqmap.put(arr[i],freqmap.getOrDefault(arr[i],0)+1);
+        maxsubset=Math.max(maxsubset,freqmap.get(arr[i]));
+        }
+        return maxsubset;
+
+    }
+}
