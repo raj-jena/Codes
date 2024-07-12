@@ -1,0 +1,33 @@
+lass Solution {
+
+    // arr[] : the input array containing 0s and 1s
+    // N : size of the input array
+    
+    // return the maximum length of the subarray
+    // with equal 0s and 1s
+    int maxLen(int[] arr, int N)
+    
+    {
+        HashMap<Integer,Integer>summap=new HashMap<>();
+        summap.put(0,-1);
+        int maxlen=0,sum=0;
+        for(int i=0;i<N;i++)
+        {
+            sum=(arr[i]==0)?(sum-1):(sum+1);
+            if(summap.containsKey(sum))
+            {
+                int len=i-summap.get(sum);
+                maxlen=Math.max(maxlen,len);
+                
+            }
+            else
+            {
+                summap.put(sum,i);
+                
+            }
+        }
+        return maxlen;
+        
+        // Your code here
+    }
+}
